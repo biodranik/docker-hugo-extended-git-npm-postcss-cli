@@ -9,7 +9,7 @@ LABEL description="Build static sites using Hugo Extended site generator. Includ
 LABEL version=HUGO_VERSION
 
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp/hugo.tar.gz
-RUN apk add --update --cache-dir /tmp npm git libc6-compat libstdc++ ca-certificates \
+RUN apk add --update --cache-dir /tmp bash npm git libc6-compat libstdc++ ca-certificates \
     && npm install -g postcss-cli autoprefixer \
     && npm cache clean --force \
     && tar -xf /tmp/hugo.tar.gz -C /tmp \
